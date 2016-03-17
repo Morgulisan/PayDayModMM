@@ -1,5 +1,6 @@
-package com.misteriosM.PayDayModMM;
+package com.misteriosM.PayDayModMM.main;
 
+import com.misteriosM.PayDayModMM.blocks.PayDayBlocks;
 import com.misteriosM.PayDayModMM.proxies.CommonProxy;
 
 import net.minecraft.block.Block;
@@ -26,16 +27,11 @@ public class PayDayModMM
     @SidedProxy(clientSide = "com.misteriosM.PayDayModMM.proxies.ClientProxy", serverSide = "com.misteriosM.PayDayModMM.proxies.CommonProxy")
     public static CommonProxy proxy;
     
-    public final static Block safeBlockDrillable = new BlockSafe(Material.ground, null).setHardness(50000F).setResistance(9000f).setStepSound(Block.soundTypeMetal).setCreativeTab(CreativeTabs.tabBlock).setUnlocalizedName("safe");
-    
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-    	GameRegistry.registerBlock(safeBlockDrillable, "safe");
-    	GameRegistry.registerTileEntity(EntitySafeTileEntity.class, "safe_entity");
-    	proxy.registerRenderers();
-    	
+    	PayDayBlocks.init();
     }
     
     @EventHandler
