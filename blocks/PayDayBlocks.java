@@ -44,7 +44,7 @@ public class PayDayBlocks {
 		GameRegistry.registerBlock(block, block.getUnlocalizedName().substring(5));
 		block.setCreativeTab(CreativeTabs.tabBlock);
 		registerInventoryItem(block);
-		LogManager.getLogger("TESTMOD").info(block + " " + block.getUnlocalizedName().substring(5));
+		LogManager.getLogger("PayDayModMM").info(block + " " + block.getUnlocalizedName().substring(5));
 	}
 
 	
