@@ -3,6 +3,7 @@ package com.misteriosM.PayDayModMM.blocks;
 import org.apache.logging.log4j.LogManager;
 
 import com.misteriosM.PayDayModMM.main.PayDayModMM;
+import com.misteriosM.PayDayModMM.main.PayDayModMMContent;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -17,12 +18,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class PayDayBlocks {
-	
-	private static Block safe;
 
 	public static void init() {
 
-		PayDayBlocks.safe = new BlockSafe(Material.rock, MapColor.goldColor).setUnlocalizedName("safe");
+	    PayDayModMMContent.safe = new BlockSafe(Material.rock, MapColor.goldColor).setUnlocalizedName("safe");
 
 		register();
 		setFireInfo();
@@ -37,7 +36,7 @@ public class PayDayBlocks {
 	}
 
 	public static void register() {
-		addBlock(PayDayBlocks.safe);
+		addBlock(PayDayModMMContent.safe);
 	}
 
 	private static void addBlock(Block block) {
@@ -48,10 +47,6 @@ public class PayDayBlocks {
 	}
 
 	
-	
-	/*
-	 * Methods
-	 */
 	public static void registerInventoryItem(Block block) {
 		registerInventoryItem(block, block.getUnlocalizedName().substring(5), 0);
 	}
@@ -65,8 +60,11 @@ public class PayDayBlocks {
 
 	@SideOnly(Side.CLIENT)
 	public static void registerInventoryItem(Item item, String modelname, int meta) {
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, meta,
-				new ModelResourceLocation(PayDayModMM.MODID + ":" + modelname, "inventory"));
+	    
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(
+		        item, meta, new ModelResourceLocation(PayDayModMM.MODID + ":" + modelname, "inventory")
+	        );
+		
 	}
 
 	// private static void addMetaBlock(Block block) {

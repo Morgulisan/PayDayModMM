@@ -5,5 +5,5 @@ import net.minecraft.block.Block;
 public enum PayDayModMMContent {
 	INSTANCE;
 	
-	public static Block blockSafe;
+	public static Block safe;
 }
